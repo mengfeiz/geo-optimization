@@ -1,0 +1,9 @@
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Local tooling (optional)
+_empty_git_template/
+_tpl/
