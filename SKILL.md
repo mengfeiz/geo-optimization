@@ -45,6 +45,7 @@ GEO = SEO × Extractability × Authority × Citation-worthiness
 
 - **`references/playbook.md`** — Read when auditing or drafting a specific page type, running citation-gap analysis, or prioritizing GEO fixes.
 - **`references/schema-patterns.md`** — Read when adding structured data or choosing which schema type fits a page.
+- **`references/ai-search-patterns.md`** — Read when planning content strategy, deciding content type priorities, or understanding AI citation behavior and RAG mechanisms.
 
 ## Quick-Start Audit (per page)
 
@@ -68,6 +69,36 @@ Apply fixes in this order unless the page has a blocking technical issue:
 5. **Schema markup**
 6. **Authority cues**
 7. **Freshness updates**
+
+## Content Priority Matrix
+
+Based on research from Ahrefs and arXiv 2311.09735:
+
+| Page Type | AI Citation Rate | Commercial Value | Implementation Priority |
+|-----------|-----------------|-----------------|-------------------------|
+| Product pages | High | High | **P0** (immediate) |
+| "Best"/"Top" lists | High | Medium | **P0** (immediate) |
+| How-to guides | High | High | **P0** (immediate) |
+| Comparison / "vs" pages | High | High | **P0** (immediate) |
+| Homepage | Very high | Very high | **P0** (immediate) |
+| FAQs | Medium | Medium | **P1** (short-term) |
+| Data studies | Medium | High | **P1** (short-term) |
+| Blog posts | Variable | Low-Medium | **P2** (long-term) |
+
+**Key insight**: 80%+ of AI referral traffic concentrates on homepage, product pages, and tools. Focus there first.
+
+## Advanced GEO: Perception in the Model
+
+Beyond traditional SEO, GEO requires managing **how your brand is encoded in the AI layer** (a16z insight):
+
+- **Unaided awareness**: Does the AI mention your brand spontaneously, or only when prompted?
+- **Sentiment**: When cited, is the framing positive, neutral, or negative?
+- **Competitive positioning**: Which competitors are cited alongside you? Are you framed as a leader or alternative?
+- **Attribute association**: What product attributes does the AI associate with your brand?
+
+**RAG Behavior**: AI assistants use Retrieval-Augmented Generation — they actively search Google/Bing to find current info, then synthesize. This means strong traditional SEO creates your GEO foundation.
+
+**Unlinked Mentions**: AI can pick up brand references without backlinks (unlike SEO). Focus on getting mentioned across the web through PR, reviews, rankings, and industry coverage.
 
 ## Content Patterns That Get Cited
 
