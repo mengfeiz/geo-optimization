@@ -1,16 +1,33 @@
 ---
 name: geo-optimization
 description: >
-  Generative Engine Optimization (GEO) — optimize content, site structure, and brand signals
-  so AI-powered answer engines (Google AI Overviews, ChatGPT, Perplexity, Claude, Bing Copilot)
-  cite, recommend, and surface your brand. Use when asked about GEO strategy, AI visibility,
-  optimizing pages for LLM citation, structured data for generative search, or measuring AI share of voice.
-  Also use for AI-overview audits, citation gap analysis, and GEO content playbooks.
+  Generative Engine Optimization (GEO) for websites, product pages, blog posts, comparison pages,
+  landing pages, and brand/entity signals. Use when asked to improve AI search visibility,
+  increase citations in ChatGPT/Perplexity/Google AI Overviews/Claude/Bing Copilot, audit pages for
+  extractability, plan answer-first content, add structured data for AI answer engines, run citation-gap
+  analysis, or turn SEO pages into citation-worthy GEO pages.
 ---
 
 # GEO — Generative Engine Optimization
 
 Optimize for **being part of the answer**, not just ranking #1.
+
+## Use This Skill For
+
+- GEO audits of existing pages
+- Rewriting pages into answer-first, citation-worthy content
+- Planning comparison pages, landing pages, FAQ pages, and how-to pages
+- Adding or improving JSON-LD / Schema.org markup
+- Citation-gap analysis against competitors in AI answer engines
+- Prioritizing GEO work across a site or content backlog
+
+## Workflow
+
+1. **Classify the asset** — product page, comparison page, blog post, how-to, landing page, homepage, or sitewide entity work.
+2. **Run the quick-start audit** below.
+3. **Read `references/playbook.md`** for the matching content type when you need tactical page guidance.
+4. **Read `references/schema-patterns.md`** when adding or revising JSON-LD.
+5. **Recommend or implement the smallest high-impact improvements first**: answer-first lead, extractable structure, unique evidence, schema, authority cues, freshness.
 
 ## Core Framework
 
@@ -26,10 +43,9 @@ GEO = SEO × Extractability × Authority × Citation-worthiness
 
 ## When to Read References
 
-- **references/playbook.md** — Full tactical checklist for pages, content types, and schema patterns. Read when starting a GEO audit or building a new page.
-- **references/schema-patterns.md** — Ready-to-use JSON-LD templates for GEO. Read when adding structured data to a page.
-
----
+- **`references/playbook.md`** — Read when auditing or drafting a specific page type, running citation-gap analysis, or prioritizing GEO fixes.
+- **`references/schema-patterns.md`** — Read when adding structured data or choosing which schema type fits a page.
+- **`references/ai-search-patterns.md`** — Read when planning content strategy, deciding content type priorities, or understanding AI citation behavior and RAG mechanisms.
 
 ## Quick-Start Audit (per page)
 
@@ -39,12 +55,52 @@ GEO = SEO × Extractability × Authority × Citation-worthiness
 4. **Citation signals**: Does the page contain at least one of: quoted statistic, unique data point, original claim with evidence?
 5. **Authority signals**: Author byline? Organization entity? Expertise cues?
 6. **Freshness**: Last-updated date visible? Content reflects current year/state?
+7. **Answer-first lead**: Does the first screen answer the likely query directly?
+8. **Priority call**: Is the next best change content, schema, authority, or freshness?
 
----
+## High-Impact Fix Order
+
+Apply fixes in this order unless the page has a blocking technical issue:
+
+1. **Answer-first lead**
+2. **Clear sections with extractable headings**
+3. **Tables / lists / FAQ blocks**
+4. **Unique facts, data, or attributed claims**
+5. **Schema markup**
+6. **Authority cues**
+7. **Freshness updates**
+
+## Content Priority Matrix
+
+Based on research from Ahrefs and arXiv 2311.09735:
+
+| Page Type | AI Citation Rate | Commercial Value | Implementation Priority |
+|-----------|-----------------|-----------------|-------------------------|
+| Product pages | High | High | **P0** (immediate) |
+| "Best"/"Top" lists | High | Medium | **P0** (immediate) |
+| How-to guides | High | High | **P0** (immediate) |
+| Comparison / "vs" pages | High | High | **P0** (immediate) |
+| Homepage | Very high | Very high | **P0** (immediate) |
+| FAQs | Medium | Medium | **P1** (short-term) |
+| Data studies | Medium | High | **P1** (short-term) |
+| Blog posts | Variable | Low-Medium | **P2** (long-term) |
+
+**Key insight**: 80%+ of AI referral traffic concentrates on homepage, product pages, and tools. Focus there first.
+
+## Advanced GEO: Perception in the Model
+
+Beyond traditional SEO, GEO requires managing **how your brand is encoded in the AI layer** (a16z insight):
+
+- **Unaided awareness**: Does the AI mention your brand spontaneously, or only when prompted?
+- **Sentiment**: When cited, is the framing positive, neutral, or negative?
+- **Competitive positioning**: Which competitors are cited alongside you? Are you framed as a leader or alternative?
+- **Attribute association**: What product attributes does the AI associate with your brand?
+
+**RAG Behavior**: AI assistants use Retrieval-Augmented Generation — they actively search Google/Bing to find current info, then synthesize. This means strong traditional SEO creates your GEO foundation.
+
+**Unlinked Mentions**: AI can pick up brand references without backlinks (unlike SEO). Focus on getting mentioned across the web through PR, reviews, rankings, and industry coverage.
 
 ## Content Patterns That Get Cited
-
-AI engines prefer content that is:
 
 ### 1. Answer-First
 Lead with the direct answer, then elaborate. Inverted pyramid.
@@ -75,8 +131,6 @@ AI engines extract from `<table>`, `<ol>`, `<ul>` structures.
 - Include proprietary data, benchmarks, or perspectives
 - "According to our testing…" > "Many people say…"
 
----
-
 ## Schema Patterns for GEO
 
 ### Must-Have (every important page)
@@ -97,8 +151,6 @@ AI engines extract from `<table>`, `<ol>`, `<ul>` structures.
 - `ClaimReview` for fact-checkable statements
 - `SoftwareApplication` for SaaS/hardware products
 
----
-
 ## Authority & Brand Signals
 
 ### On-Site
@@ -115,13 +167,11 @@ AI engines extract from `<table>`, `<ol>`, `<ul>` structures.
 - **Industry citations** — being referenced in research papers, reports, news
 - **Review platforms** — G2, Trustpilot, Capterra data feeds AI recommendations
 
----
-
 ## Technical Requirements
 
 ### Rendering
-- **SSR/SSG required** — AI crawlers struggle with client-side JS rendering
-- Next.js: use `generateMetadata` (server), avoid `'use client'` for content pages
+- **SSR/SSG preferred** — AI crawlers struggle with client-side JS rendering
+- Next.js: use `generateMetadata` (server), avoid `'use client'` for content-heavy pages
 - Test: `curl -sL https://yoururl.com | head -100` — meaningful text should appear
 
 ### Performance
@@ -150,8 +200,6 @@ User-agent: Google-Extended
 Allow: /
 ```
 
----
-
 ## Measurement
 
 ### What to Track
@@ -163,7 +211,7 @@ Allow: /
 ### Tools
 - Semrush AI Visibility Toolkit
 - Semrush Enterprise AIO
-- Manual: Prompt AI engines with target queries and check responses
+- Manual: prompt AI engines with target queries and check responses
 - Track over time with periodic audits (monthly recommended)
 
 ### Manual Audit Template
@@ -175,8 +223,6 @@ For each target query, ask:
 
 Record: mentioned (Y/N), position in answer, sentiment, source URL cited.
 
----
-
 ## GEO vs SEO — Not Separate, Complementary
 
 | Aspect | SEO | GEO |
@@ -187,4 +233,5 @@ Record: mentioned (Y/N), position in answer, sentiment, source URL cited.
 | Technical | Crawl, index, speed | SSR, schema, clean DOM |
 | Authority | Backlinks | Mentions (linked + unlinked), E-E-A-T |
 
-**Rule of thumb**: Good SEO → good GEO foundation. Add extractability, structure, and citation-worthiness on top.
+**Rule of thumb**: good SEO creates the GEO foundation. Then add extractability, structure, and citation-worthiness.
+
